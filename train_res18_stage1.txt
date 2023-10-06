@@ -1,0 +1,1798 @@
+=====================Config=====================
+image_size :  (720, 1280)
+num_boxes :  12
+use_gpu :  True
+use_multi_gpu :  False
+device_list :  0
+dataset_name :  volleyball
+data_path :  data/volleyball/videos
+train_seqs :  [1, 3, 6, 7, 10, 13, 15, 16, 18, 22, 23, 31, 32, 36, 38, 39, 40, 41, 42, 48, 50, 52, 53, 54, 0, 2, 8, 12, 17, 19, 24, 26, 27, 28, 30, 33, 46, 49, 51]
+test_seqs :  [4, 5, 9, 11, 14, 20, 21, 25, 29, 34, 35, 37, 43, 44, 45, 47]
+backbone :  res18
+crop_size :  (5, 5)
+train_backbone :  True
+out_size :  (23, 40)
+emb_features :  512
+num_actions :  9
+num_activities :  8
+actions_loss_weight :  1.0
+actions_weights :  [1.0, 1.0, 2.0, 3.0, 1.0, 2.0, 2.0, 0.2, 1.0]
+num_frames :  5
+num_before :  5
+num_after :  4
+num_features_boxes :  1024
+num_features_relation :  256
+num_graph :  16
+num_features_gcn :  1024
+gcn_layers :  1
+tau_sqrt :  False
+pos_threshold :  0.2
+train_random_seed :  42
+train_learning_rate :  0.0001
+train_dropout_prob :  0.3
+weight_decay :  0
+max_epoch :  60
+test_interval_epoch :  0
+training_stage :  2
+stage1_model_path :  result/basemodel_VD_res18.pth
+pose_head_path :  
+test_before_train :  False
+set_bn_eval :  False
+inference_module_name :  dynamic_volleyball
+stride :  1
+ST_kernel_size :  [(3, 3)]
+dynamic_sampling :  True
+sampling_ratio :  [1]
+group :  1
+scale_factor :  True
+beta_factor :  False
+load_backbone_stage2 :  False
+parallel_inference :  False
+hierarchical_inference :  False
+lite_dim :  None
+num_DIM :  1
+load_stage2model :  False
+stage2model :  result/stage2_epoch1_88.11%.pth
+temporal_pooled_first :  False
+halting_penalty :  0.0001
+======================End=======================
+
+Train at epoch #1
+Group Activity Accuracy: 61.12%, Loss: 1.36342, Using 348.3 seconds
+[[274  36 103   3   7  11  12   6]
+ [ 43 286  44   4  14  16  37   6]
+ [ 95  40 339   6  17  34  49  11]
+ [  5   7  12 116   3   3   4  58]
+ [  6   9  18   4 281  35 107   4]
+ [  6  16  39   2  34 321  41   4]
+ [ 15  34  50  10  97  38 346  10]
+ [  1   3   6  53   3   3  24 172]]
+Activities MPCA:61.22%
+
+
+
+====> Test at epoch #1
+Group Activity Accuracy: 77.19%, Loss: 0.69777, Using 71.4 seconds
+[[157  17  16   1   1   0   0   0]
+ [  9 159   2   2   0   0   0   1]
+ [ 16  24 166   0   0   1   3   1]
+ [  2   0   4  78   0   0   0   3]
+ [  2  11   0   1 137   2  12   3]
+ [  0  44   2   0  10 121   3   0]
+ [  1  56  21   1  22   0 123   0]
+ [  0   0   2   8   0   0   1  91]]
+Activities MPCA:79.36%
+
+
+Best group activity accuracy: 77.19% at epoch #1.
+
+Train at epoch #2
+Group Activity Accuracy: 84.17%, Loss: 0.51410, Using 358.1 seconds
+[[357  24  59   3   2   1   5   1]
+ [ 27 379  17   4   5   6  12   0]
+ [ 47  18 494   1   1  11  18   1]
+ [  4   0   3 177   1   0   2  21]
+ [  3   2   3   0 378  15  61   2]
+ [  1   9  15   0  20 407   9   2]
+ [  1  16  16   3  40  12 510   2]
+ [  0   0   2  21   4   0   0 238]]
+Activities MPCA:84.51%
+
+
+
+====> Test at epoch #2
+Group Activity Accuracy: 86.24%, Loss: 0.42952, Using 71.9 seconds
+[[171   8   9   0   2   0   2   0]
+ [  6 156   5   0   1   0   4   1]
+ [ 21   6 171   0   1   4   8   0]
+ [  2   0   4  52   0   0   2  27]
+ [  1   0   0   0 149   2  16   0]
+ [  0   2   0   0  10 159   9   0]
+ [  0   2   2   0  13   8 199   0]
+ [  0   0   1   2   0   0   3  96]]
+Activities MPCA:85.00%
+
+
+Best group activity accuracy: 86.24% at epoch #2.
+
+Train at epoch #3
+Group Activity Accuracy: 90.04%, Loss: 0.32454, Using 356.4 seconds
+[[393  17  36   2   0   2   2   0]
+ [ 20 400  20   0   2   5   3   0]
+ [ 36  10 518   1   1   9  15   1]
+ [  1   0   3 196   0   0   1   7]
+ [  4   0   0   0 419  14  27   0]
+ [  1   7   9   1  16 414  14   1]
+ [  0   7  13   2  18  11 548   1]
+ [  0   0   2   4   1   0   1 257]]
+Activities MPCA:90.72%
+
+
+
+====> Test at epoch #3
+Group Activity Accuracy: 77.71%, Loss: 0.76943, Using 71.6 seconds
+[[ 48  80  62   1   1   0   0   0]
+ [  0 161  10   2   0   0   0   0]
+ [  0   5 203   0   0   1   1   1]
+ [  0   1   4  81   0   0   0   1]
+ [  0   9   3   0 131   9  16   0]
+ [  0   5   2   0   3 166   4   0]
+ [  0  29  18   3   5   5 164   0]
+ [  0   0   2  14   0   1   0  85]]
+Activities MPCA:79.27%
+
+
+Best group activity accuracy: 86.24% at epoch #2.
+
+Train at epoch #4
+Group Activity Accuracy: 91.33%, Loss: 0.27821, Using 358.9 seconds
+[[393  24  30   0   2   2   0   1]
+ [ 20 407  13   0   1   4   5   0]
+ [ 23   7 542   1   1   9   7   1]
+ [  3   0   1 198   0   0   3   3]
+ [  2   0   1   1 417  14  28   1]
+ [  1   7   9   0  13 425   7   1]
+ [  2   6   4   1  23   7 556   1]
+ [  1   0   1   7   3   0   1 252]]
+Activities MPCA:91.71%
+
+
+
+====> Test at epoch #4
+Group Activity Accuracy: 78.53%, Loss: 0.67360, Using 71.9 seconds
+[[165  12  11   0   2   0   0   2]
+ [  8 159   4   1   0   0   0   1]
+ [ 22   5 180   0   0   0   3   1]
+ [ 12   1   5  58   0   0   0  11]
+ [  3   3   2   0 147   2  11   0]
+ [  3  23  21   0  24 106   2   1]
+ [  6  18  16   0  41   1 141   1]
+ [  1   2   5   0   0   0   0  94]]
+Activities MPCA:78.91%
+
+
+Best group activity accuracy: 86.24% at epoch #2.
+
+Train at epoch #5
+Group Activity Accuracy: 93.79%, Loss: 0.19105, Using 358.0 seconds
+[[410  11  28   0   0   2   1   0]
+ [ 12 417  11   0   1   6   3   0]
+ [ 18   9 555   0   0   6   3   0]
+ [  1   0   0 203   0   0   2   2]
+ [  2   3   0   0 435   9  15   0]
+ [  1   7   6   1  13 424  11   0]
+ [  0   1   4   2  12   9 572   0]
+ [  0   0   1   2   0   0   2 260]]
+Activities MPCA:94.21%
+
+
+
+====> Test at epoch #5
+Group Activity Accuracy: 86.76%, Loss: 0.51336, Using 71.6 seconds
+[[133  13  43   0   2   0   0   1]
+ [  3 160   9   1   0   0   0   0]
+ [  3   2 201   0   0   0   4   1]
+ [  0   0   4  76   0   0   2   5]
+ [  1   1   0   0 140   2  24   0]
+ [  1   1   5   0   7 154  12   0]
+ [  0   0   6   0  16   2 199   1]
+ [  0   0   0   4   0   0   1  97]]
+Activities MPCA:87.15%
+
+
+Best group activity accuracy: 86.76% at epoch #5.
+
+Train at epoch #6
+Group Activity Accuracy: 95.19%, Loss: 0.14469, Using 356.5 seconds
+[[431   7  13   0   0   1   0   0]
+ [ 11 418   5   1   1   8   5   1]
+ [  9   5 563   2   1   6   5   0]
+ [  2   1   1 202   0   0   1   1]
+ [  1   1   0   0 437   6  17   2]
+ [  2  10   3   0   6 437   4   1]
+ [  0   5   6   0   8   4 576   1]
+ [  0   0   1   2   0   1   0 261]]
+Activities MPCA:95.46%
+
+
+
+====> Test at epoch #6
+Group Activity Accuracy: 86.99%, Loss: 0.47950, Using 71.3 seconds
+[[141  28  21   1   1   0   0   0]
+ [  1 166   5   1   0   0   0   0]
+ [  6  12 191   0   0   0   2   0]
+ [  3   2   0  80   0   0   1   1]
+ [  1   2   1   0 150   6   8   0]
+ [  0   3   1   0   6 164   6   0]
+ [  0  10   8   0  16   5 185   0]
+ [  0   0   1   6   7   0   2  86]]
+Activities MPCA:87.40%
+
+
+Best group activity accuracy: 86.99% at epoch #6.
+
+Train at epoch #7
+Group Activity Accuracy: 97.65%, Loss: 0.07584, Using 358.6 seconds
+[[436   7   6   1   2   0   0   0]
+ [  7 434   5   0   0   3   1   0]
+ [  2   4 582   1   0   1   1   0]
+ [  2   0   0 204   0   0   1   1]
+ [  1   0   0   0 453   3   7   0]
+ [  0   1   1   0   4 451   5   1]
+ [  0   1   2   0   5   3 589   0]
+ [  1   0   0   1   1   0   0 262]]
+Activities MPCA:97.69%
+
+
+
+====> Test at epoch #7
+Group Activity Accuracy: 87.36%, Loss: 0.51492, Using 70.8 seconds
+[[149  12  28   2   1   0   0   0]
+ [  3 158   8   2   0   0   1   1]
+ [  6   5 196   1   0   1   1   1]
+ [  1   1   1  82   0   0   0   2]
+ [  3   0   2   0 137   6  16   4]
+ [  0   2   3   0   4 164   7   0]
+ [  0   9  11   1  10   2 190   1]
+ [  0   0   0   8   0   0   2  92]]
+Activities MPCA:87.97%
+
+
+Best group activity accuracy: 87.36% at epoch #7.
+
+Train at epoch #8
+Group Activity Accuracy: 97.08%, Loss: 0.10150, Using 355.6 seconds
+[[439   3   8   1   1   0   0   0]
+ [  2 434   5   0   0   8   1   0]
+ [  6   1 575   0   0   4   5   0]
+ [  0   0   0 201   0   0   2   5]
+ [  2   0   0   0 448   4  10   0]
+ [  0   3   1   1   5 451   2   0]
+ [  0   1   3   1   7   1 586   1]
+ [  0   0   0   5   1   0   2 257]]
+Activities MPCA:97.01%
+
+
+
+====> Test at epoch #8
+Group Activity Accuracy: 86.91%, Loss: 0.54969, Using 71.7 seconds
+[[170   9   8   2   1   1   0   1]
+ [  7 159   4   2   0   0   0   1]
+ [ 21   6 180   1   0   0   2   1]
+ [  2   0   0  82   0   0   0   3]
+ [  1   3   0   1 153   2   8   0]
+ [  0   2   4   1   8 163   2   0]
+ [  1  16   8   3  31   3 162   0]
+ [  0   0   1   8   0   0   0  93]]
+Activities MPCA:88.14%
+
+
+Best group activity accuracy: 87.36% at epoch #7.
+
+Train at epoch #9
+Group Activity Accuracy: 96.97%, Loss: 0.09551, Using 359.1 seconds
+[[436   6   7   2   1   0   0   0]
+ [  9 432   1   0   1   3   4   0]
+ [  5   6 573   0   0   3   3   1]
+ [  1   1   1 200   0   0   0   5]
+ [  1   1   0   1 454   3   4   0]
+ [  0   3   5   0   2 451   2   0]
+ [  0   5   2   0   6   2 584   1]
+ [  0   0   1   5   1   0   1 257]]
+Activities MPCA:96.89%
+
+
+
+====> Test at epoch #9
+Group Activity Accuracy: 86.39%, Loss: 0.58084, Using 72.0 seconds
+[[143  25  22   0   1   1   0   0]
+ [  2 165   4   1   1   0   0   0]
+ [  6  18 182   0   0   2   2   1]
+ [  0   1   4  72   0   0   2   8]
+ [  1   2   0   0 146   6  13   0]
+ [  0   4   0   0   5 165   6   0]
+ [  0  17   3   0  11   8 185   0]
+ [  0   0   0   3   0   1   1  97]]
+Activities MPCA:86.89%
+
+
+Best group activity accuracy: 87.36% at epoch #7.
+
+Train at epoch #10
+Group Activity Accuracy: 97.42%, Loss: 0.07438, Using 358.3 seconds
+[[436   4  10   0   1   0   1   0]
+ [  5 438   2   0   1   3   1   0]
+ [  5   2 580   0   0   2   2   0]
+ [  1   0   0 203   0   1   1   2]
+ [  0   1   0   0 450   2   9   2]
+ [  0   4   1   0   2 452   4   0]
+ [  0   2   1   2   6   5 583   1]
+ [  0   0   0   1   2   0   1 261]]
+Activities MPCA:97.47%
+
+
+
+====> Test at epoch #10
+Group Activity Accuracy: 88.33%, Loss: 0.53226, Using 72.1 seconds
+[[160  11  14   1   3   0   3   0]
+ [  4 160   4   2   0   0   2   1]
+ [  7  10 178   1   0   1  13   1]
+ [  1   0   0  80   0   0   3   3]
+ [  1   1   0   0 144   2  20   0]
+ [  0   1   1   0   9 158  11   0]
+ [  0   2   1   1  10   2 207   1]
+ [  0   0   0   5   0   0   3  94]]
+Activities MPCA:88.77%
+
+
+Best group activity accuracy: 88.33% at epoch #10.
+
+Train at epoch #11
+Group Activity Accuracy: 99.71%, Loss: 0.01347, Using 358.0 seconds
+[[450   1   1   0   0   0   0   0]
+ [  1 449   0   0   0   0   0   0]
+ [  0   1 590   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  1   0   0   0 461   1   1   0]
+ [  0   0   0   0   1 461   1   0]
+ [  0   0   0   0   0   1 599   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:99.74%
+
+
+
+====> Test at epoch #11
+Group Activity Accuracy: 89.68%, Loss: 0.47423, Using 70.8 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 159   6   2   0   0   1   1]
+ [  6   5 193   1   1   1   3   1]
+ [  1   0   0  82   0   0   1   3]
+ [  1   2   0   0 150   3  12   0]
+ [  1   2   0   0   8 164   5   0]
+ [  0   5   2   1  23   2 190   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:90.48%
+
+
+Best group activity accuracy: 89.68% at epoch #11.
+
+Train at epoch #12
+Group Activity Accuracy: 99.97%, Loss: 0.00394, Using 356.5 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 590   0   0   0   1   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:99.98%
+
+
+
+====> Test at epoch #12
+Group Activity Accuracy: 90.05%, Loss: 0.47177, Using 71.3 seconds
+[[163  11  14   1   2   0   1   0]
+ [  3 161   6   2   0   0   0   1]
+ [  6   4 195   1   0   1   3   1]
+ [  1   0   0  83   0   0   0   3]
+ [  1   2   0   0 150   3  12   0]
+ [  1   2   0   0   8 166   3   0]
+ [  0   7   3   1  22   2 188   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:90.91%
+
+
+Best group activity accuracy: 90.05% at epoch #12.
+
+Train at epoch #13
+Group Activity Accuracy: 99.97%, Loss: 0.00251, Using 358.8 seconds
+[[451   0   1   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:99.97%
+
+
+
+====> Test at epoch #13
+Group Activity Accuracy: 90.13%, Loss: 0.45919, Using 71.8 seconds
+[[159   9  20   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [  6   3 195   1   0   1   4   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 149   3  13   0]
+ [  0   1   1   0   7 167   4   0]
+ [  0   3   3   1  18   3 195   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:90.82%
+
+
+Best group activity accuracy: 90.13% at epoch #13.
+
+Train at epoch #14
+Group Activity Accuracy: 100.00%, Loss: 0.00151, Using 357.4 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #14
+Group Activity Accuracy: 90.20%, Loss: 0.46973, Using 71.6 seconds
+[[167  10  11   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [ 10   4 190   1   0   1   4   1]
+ [  1   0   0  83   0   0   0   3]
+ [  1   2   0   0 149   3  13   0]
+ [  1   1   0   0  10 163   5   0]
+ [  0   3   2   1  18   2 197   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:90.90%
+
+
+Best group activity accuracy: 90.20% at epoch #14.
+
+Train at epoch #15
+Group Activity Accuracy: 100.00%, Loss: 0.00122, Using 358.3 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #15
+Group Activity Accuracy: 90.28%, Loss: 0.47014, Using 71.4 seconds
+[[165   9  14   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [  9   2 193   1   1   2   2   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  0   1   1   0   8 167   3   0]
+ [  0   4   2   1  20   4 192   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:91.00%
+
+
+Best group activity accuracy: 90.28% at epoch #15.
+
+Train at epoch #16
+Group Activity Accuracy: 100.00%, Loss: 0.00088, Using 357.5 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #16
+Group Activity Accuracy: 90.35%, Loss: 0.46935, Using 71.4 seconds
+[[165   9  14   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [  9   3 193   1   1   1   2   1]
+ [  1   0   0  83   0   0   0   3]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   3   1  19   3 193   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.08%
+
+
+Best group activity accuracy: 90.35% at epoch #16.
+
+Train at epoch #17
+Group Activity Accuracy: 100.00%, Loss: 0.00064, Using 357.8 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #17
+Group Activity Accuracy: 90.20%, Loss: 0.47647, Using 72.0 seconds
+[[162   9  17   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [  8   2 194   1   1   1   3   1]
+ [  1   0   0  83   0   0   0   3]
+ [  1   2   0   0 148   3  14   0]
+ [  1   1   1   0   7 166   4   0]
+ [  0   3   2   1  18   4 195   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:90.96%
+
+
+Best group activity accuracy: 90.35% at epoch #16.
+
+Train at epoch #18
+Group Activity Accuracy: 100.00%, Loss: 0.00039, Using 359.6 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #18
+Group Activity Accuracy: 90.20%, Loss: 0.48339, Using 71.8 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [  8   3 192   1   1   2   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 148   3  14   0]
+ [  1   1   1   0   6 168   3   0]
+ [  0   2   2   1  19   4 195   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:90.90%
+
+
+Best group activity accuracy: 90.35% at epoch #16.
+
+Train at epoch #19
+Group Activity Accuracy: 100.00%, Loss: 0.00024, Using 358.3 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #19
+Group Activity Accuracy: 90.65%, Loss: 0.48857, Using 70.7 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [  8   1 195   1   1   1   3   1]
+ [  1   0   0  83   0   0   0   3]
+ [  1   2   0   0 148   3  14   0]
+ [  1   1   1   0   6 168   3   0]
+ [  0   2   2   1  16   4 198   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.27%
+
+
+Best group activity accuracy: 90.65% at epoch #19.
+
+Train at epoch #20
+Group Activity Accuracy: 100.00%, Loss: 0.00019, Using 358.1 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #20
+Group Activity Accuracy: 90.73%, Loss: 0.50081, Using 71.7 seconds
+[[162   9  17   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  6   1 197   1   1   1   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 148   3  14   0]
+ [  0   1   2   0   6 168   3   0]
+ [  0   2   2   1  16   4 198   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.25%
+
+
+Best group activity accuracy: 90.73% at epoch #20.
+
+Train at epoch #21
+Group Activity Accuracy: 100.00%, Loss: 0.00014, Using 358.7 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #21
+Group Activity Accuracy: 90.35%, Loss: 0.50204, Using 71.7 seconds
+[[162   9  17   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  8   3 193   1   1   1   3   1]
+ [  1   0   0  83   0   0   0   3]
+ [  1   2   0   0 149   3  13   0]
+ [  1   1   1   0   6 168   3   0]
+ [  0   2   2   1  19   4 195   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.06%
+
+
+Best group activity accuracy: 90.73% at epoch #20.
+
+Train at epoch #22
+Group Activity Accuracy: 100.00%, Loss: 0.00011, Using 357.4 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #22
+Group Activity Accuracy: 90.88%, Loss: 0.50608, Using 71.3 seconds
+[[162   9  17   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  6   1 197   1   0   1   4   1]
+ [  1   0   0  83   0   0   0   3]
+ [  1   2   0   0 148   3  14   0]
+ [  0   1   2   0   6 168   3   0]
+ [  0   2   2   1  16   3 199   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.45%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #23
+Group Activity Accuracy: 100.00%, Loss: 0.00010, Using 357.1 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #23
+Group Activity Accuracy: 90.58%, Loss: 0.50741, Using 72.0 seconds
+[[162   9  17   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  8   1 195   1   1   1   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  0   1   2   0   6 168   3   0]
+ [  0   2   2   1  18   4 196   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.17%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #24
+Group Activity Accuracy: 100.00%, Loss: 0.00007, Using 358.3 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #24
+Group Activity Accuracy: 90.65%, Loss: 0.51077, Using 72.3 seconds
+[[164   9  15   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  8   2 194   1   0   1   4   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 147   3  15   0]
+ [  1   1   1   0   6 167   4   0]
+ [  0   2   2   1  15   3 200   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.17%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #25
+Group Activity Accuracy: 100.00%, Loss: 0.00008, Using 357.4 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #25
+Group Activity Accuracy: 90.28%, Loss: 0.52610, Using 71.6 seconds
+[[162   9  17   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  8   2 196   1   1   0   2   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 149   3  13   0]
+ [  0   1   2   0   7 167   3   0]
+ [  0   3   3   1  19   4 193   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:90.91%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #26
+Group Activity Accuracy: 100.00%, Loss: 0.00005, Using 359.9 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #26
+Group Activity Accuracy: 90.58%, Loss: 0.53025, Using 73.0 seconds
+[[164   9  15   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  9   2 193   1   1   1   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   6 168   3   0]
+ [  0   2   3   1  18   4 195   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:91.24%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #27
+Group Activity Accuracy: 100.00%, Loss: 0.00004, Using 363.6 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #27
+Group Activity Accuracy: 90.65%, Loss: 0.53345, Using 72.1 seconds
+[[164   9  15   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [  8   1 195   1   1   1   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 148   3  14   0]
+ [  1   1   1   0   6 168   3   0]
+ [  0   3   2   1  17   2 198   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.19%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #28
+Group Activity Accuracy: 100.00%, Loss: 0.00003, Using 358.8 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #28
+Group Activity Accuracy: 90.43%, Loss: 0.53956, Using 71.6 seconds
+[[164   9  15   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [ 10   3 191   1   1   1   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   2   2   1  17   3 198   1]
+ [  0   0   0   3   0   0   2  97]]
+Activities MPCA:91.03%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #29
+Group Activity Accuracy: 100.00%, Loss: 0.00002, Using 359.0 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #29
+Group Activity Accuracy: 90.65%, Loss: 0.54607, Using 72.1 seconds
+[[164   9  15   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  9   1 195   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   2   2   2  20   4 193   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.38%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #30
+Group Activity Accuracy: 100.00%, Loss: 0.00002, Using 359.6 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #30
+Group Activity Accuracy: 90.65%, Loss: 0.54998, Using 71.4 seconds
+[[164   9  15   1   2   0   1   0]
+ [  5 159   6   2   0   0   0   1]
+ [ 10   2 193   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   1   0   0 152   3  11   0]
+ [  1   1   1   0   6 167   4   0]
+ [  0   2   2   1  18   3 197   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:91.29%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #31
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 360.1 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #31
+Group Activity Accuracy: 90.50%, Loss: 0.55469, Using 72.6 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 160   6   2   0   0   0   1]
+ [ 10   2 193   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 149   3  13   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   1  17   2 198   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:91.13%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #32
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 358.4 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #32
+Group Activity Accuracy: 90.80%, Loss: 0.55524, Using 72.6 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  8   1 196   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   2   2   1  17   4 197   1]
+ [  0   0   0   2   0   0   2  98]]
+Activities MPCA:91.40%
+
+
+Best group activity accuracy: 90.88% at epoch #22.
+
+Train at epoch #33
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 359.7 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #33
+Group Activity Accuracy: 91.02%, Loss: 0.56114, Using 72.2 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  7   2 196   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   6 167   4   0]
+ [  0   2   2   1  16   3 199   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.63%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #34
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 357.0 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #34
+Group Activity Accuracy: 91.02%, Loss: 0.56214, Using 72.4 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  7   2 196   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  0   1   2   0   7 167   3   0]
+ [  0   3   2   1  16   2 199   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.63%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #35
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 359.9 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #35
+Group Activity Accuracy: 90.58%, Loss: 0.56524, Using 72.6 seconds
+[[164   9  15   1   2   0   1   0]
+ [  4 162   5   1   0   0   0   1]
+ [ 10   3 189   1   1   3   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   2   2   1  17   4 197   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.32%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #36
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 358.5 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #36
+Group Activity Accuracy: 91.02%, Loss: 0.56557, Using 72.2 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  7   2 196   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   1  16   2 199   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.63%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #37
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 358.8 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #37
+Group Activity Accuracy: 90.73%, Loss: 0.56919, Using 71.5 seconds
+[[163   9  16   1   2   0   1   0]
+ [  5 160   6   1   0   0   0   1]
+ [  7   2 195   1   1   1   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   2   2   2  17   4 196   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.41%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #38
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 359.0 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #38
+Group Activity Accuracy: 90.95%, Loss: 0.57677, Using 72.3 seconds
+[[164   9  15   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  8   2 195   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 152   3  10   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   1  17   3 196   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.62%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #39
+Group Activity Accuracy: 100.00%, Loss: 0.00001, Using 359.4 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #39
+Group Activity Accuracy: 90.80%, Loss: 0.57932, Using 72.5 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  7   2 196   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   2  16   3 196   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.47%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #40
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 358.4 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #40
+Group Activity Accuracy: 91.02%, Loss: 0.57788, Using 71.8 seconds
+[[165   9  14   1   2   0   1   0]
+ [  5 160   6   1   0   0   0   1]
+ [  8   1 197   1   1   0   2   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   2  17   2 196   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.66%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #41
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 358.0 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #41
+Group Activity Accuracy: 90.50%, Loss: 0.58457, Using 72.4 seconds
+[[165   9  14   1   2   0   1   0]
+ [  5 159   6   2   0   0   0   1]
+ [ 10   2 193   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 152   3  10   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   2  19   3 193   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.26%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #42
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 357.0 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #42
+Group Activity Accuracy: 90.80%, Loss: 0.57734, Using 72.1 seconds
+[[163   9  16   1   2   0   1   0]
+ [  5 160   6   1   0   0   0   1]
+ [  9   2 194   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   1  16   2 199   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.44%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #43
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 357.8 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #43
+Group Activity Accuracy: 90.73%, Loss: 0.58328, Using 72.7 seconds
+[[163   9  16   1   2   0   1   0]
+ [  5 160   6   1   0   0   0   1]
+ [  8   2 195   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 149   3  13   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   2  16   2 198   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.37%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #44
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 358.5 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #44
+Group Activity Accuracy: 90.95%, Loss: 0.58713, Using 72.3 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 161   6   1   0   0   0   1]
+ [  8   2 196   1   1   0   2   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   1  16   2 198   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.58%
+
+
+Best group activity accuracy: 91.02% at epoch #33.
+
+Train at epoch #45
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 359.6 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #45
+Group Activity Accuracy: 91.25%, Loss: 0.58992, Using 72.6 seconds
+[[164   9  15   1   2   0   1   0]
+ [  4 161   6   1   1   0   0   0]
+ [ 10   2 193   1   1   0   3   1]
+ [  1   0   0  81   0   0   0   5]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   1  16   3 197   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.27%
+
+
+Best group activity accuracy: 91.25% at epoch #45.
+
+Train at epoch #46
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 358.7 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #46
+Group Activity Accuracy: 91.15%, Loss: 0.59487, Using 72.2 seconds
+[[163   9  16   1   2   0   1   0]
+ [  5 160   6   1   1   0   0   0]
+ [ 10   2 193   1   1   0   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   1  17   3 197   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.35%
+
+
+Best group activity accuracy: 91.25% at epoch #45.
+
+Train at epoch #47
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 358.2 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #47
+Group Activity Accuracy: 91.32%, Loss: 0.59383, Using 72.6 seconds
+[[163   9  16   1   2   0   1   0]
+ [  5 160   6   1   1   0   0   0]
+ [  7   2 194   1   1   2   3   1]
+ [  1   0   0  82   0   0   0   4]
+ [  1   1   0   0 151   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   2   2   1  15   3 200   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.57%
+
+
+Best group activity accuracy: 91.32% at epoch #47.
+
+Train at epoch #48
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 360.3 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #48
+Group Activity Accuracy: 92.22%, Loss: 0.60116, Using 72.4 seconds
+[[165   9  14   1   2   0   1   0]
+ [  5 160   6   1   1   0   0   0]
+ [  9   2 194   1   1   0   3   1]
+ [  1   0   0  80   0   0   0   6]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   2  18   2 195   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:92.25%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #49
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 359.4 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #49
+Group Activity Accuracy: 91.50%, Loss: 0.60144, Using 72.8 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 161   6   1   1   0   0   0]
+ [  9   2 194   1   1   0   3   1]
+ [  1   0   0  80   0   0   0   6]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   1  15   2 200   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.68%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #50
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 357.6 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #50
+Group Activity Accuracy: 91.65%, Loss: 0.60576, Using 72.4 seconds
+[[165   9  14   1   2   0   1   0]
+ [  4 161   6   1   1   0   0   0]
+ [ 11   2 192   1   1   0   3   1]
+ [  1   0   0  80   0   0   0   6]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   2  16   2 198   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.78%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #51
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 357.2 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #51
+Group Activity Accuracy: 91.68%, Loss: 0.60797, Using 72.1 seconds
+[[165   9  14   1   2   0   1   0]
+ [  5 160   6   1   1   0   0   0]
+ [ 10   2 193   1   1   0   3   1]
+ [  1   0   0  81   0   0   0   5]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   2  17   2 197   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.76%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #52
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 360.0 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #52
+Group Activity Accuracy: 91.70%, Loss: 0.61057, Using 72.6 seconds
+[[165   9  14   1   2   0   1   0]
+ [  4 161   6   1   1   0   0   0]
+ [  9   2 194   1   1   0   3   1]
+ [  1   0   0  81   0   0   0   5]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   1  14   2 201   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.81%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #53
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 358.8 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #53
+Group Activity Accuracy: 91.73%, Loss: 0.60977, Using 72.3 seconds
+[[165   9  14   1   2   0   1   0]
+ [  5 161   5   1   1   0   0   0]
+ [ 10   2 193   1   1   0   3   1]
+ [  1   0   0  80   0   0   0   6]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   2  15   2 198   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.84%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #54
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 356.1 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #54
+Group Activity Accuracy: 91.95%, Loss: 0.61311, Using 72.0 seconds
+[[164   9  15   1   2   0   1   0]
+ [  5 161   5   1   1   0   0   0]
+ [ 11   2 192   1   1   0   3   1]
+ [  1   0   0  80   0   0   0   6]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   1  16   2 199   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:92.10%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #55
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 359.7 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #55
+Group Activity Accuracy: 91.58%, Loss: 0.62108, Using 72.7 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 161   6   1   1   0   0   0]
+ [ 11   2 192   1   1   0   3   1]
+ [  1   0   0  81   0   0   0   5]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   1  16   3 197   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.72%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #56
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 359.0 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #56
+Group Activity Accuracy: 91.65%, Loss: 0.61936, Using 71.2 seconds
+[[164   9  15   1   2   0   1   0]
+ [  5 160   6   1   1   0   0   0]
+ [ 10   2 193   1   1   0   3   1]
+ [  1   0   0  80   0   0   0   6]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   1  15   3 198   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.78%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #57
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 359.7 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #57
+Group Activity Accuracy: 91.50%, Loss: 0.62180, Using 71.7 seconds
+[[162   9  17   1   2   0   1   0]
+ [  4 162   5   1   1   0   0   0]
+ [ 11   2 192   1   1   0   3   1]
+ [  1   0   0  81   0   0   0   5]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   2  16   3 196   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.67%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #58
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 359.9 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #58
+Group Activity Accuracy: 91.73%, Loss: 0.62499, Using 72.8 seconds
+[[163   9  16   1   2   0   1   0]
+ [  4 162   5   1   1   0   0   0]
+ [  9   2 194   1   1   0   3   1]
+ [  1   0   0  80   0   0   0   6]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   2  14   3 198   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.84%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #59
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 359.5 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #59
+Group Activity Accuracy: 91.80%, Loss: 0.62407, Using 72.4 seconds
+[[164   9  15   1   2   0   1   0]
+ [  5 160   6   1   1   0   0   0]
+ [  9   2 194   1   1   0   3   1]
+ [  1   0   0  81   0   0   0   5]
+ [  1   2   0   0 150   3  12   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   3   2   1  16   2 199   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.92%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
+
+Train at epoch #60
+Group Activity Accuracy: 100.00%, Loss: 0.00000, Using 359.4 seconds
+[[452   0   0   0   0   0   0   0]
+ [  0 450   0   0   0   0   0   0]
+ [  0   0 591   0   0   0   0   0]
+ [  0   0   0 208   0   0   0   0]
+ [  0   0   0   0 464   0   0   0]
+ [  0   0   0   0   0 463   0   0]
+ [  0   0   0   0   0   0 600   0]
+ [  0   0   0   0   0   0   0 265]]
+Activities MPCA:100.00%
+
+
+
+====> Test at epoch #60
+Group Activity Accuracy: 91.80%, Loss: 0.62829, Using 71.3 seconds
+[[165   9  14   1   2   0   1   0]
+ [  5 161   5   1   1   0   0   0]
+ [ 11   2 192   1   1   0   3   1]
+ [  1   0   0  81   0   0   0   5]
+ [  1   2   0   0 151   3  11   0]
+ [  1   1   1   0   7 167   3   0]
+ [  0   4   2   1  16   2 198   1]
+ [  0   0   0   1   0   0   2  99]]
+Activities MPCA:91.96%
+
+
+Best group activity accuracy: 92.22% at epoch #48.
